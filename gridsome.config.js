@@ -5,23 +5,16 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: "The Duck Gallery",
+  siteName: "Duck Atelier",
   plugins: [
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "blog/**/*.md",
+        path: ".src/assets/blog/**/*.md",
         typeName: "Post",
         remark: {
           // remark options
         },
-      },
-    },
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        typeName: "BlogPost",
-        path: "./content/blog/**/*.md",
       },
     },
     {
@@ -41,21 +34,10 @@ module.exports = {
     },
     {
       use: "gridsome-plugin-tailwindcss",
-      /**
-      * These are the default options. You don't need to set any options to get
-      * going. Seriously, you don't need to declare tailwind.config.js.
-
-      options: {
-        tailwindConfig: './tailwind.config.js',
-        presetEnvConfig: {},
-        shouldImport: true,
-        shouldTimeTravel: true
-      }
-      */
     },
   ],
   templates: {
-    BlogPost: "/blog/:year/:month/:day/:slug",
+    Post: "/blog/:year/:month/:day/:slug",
   },
   transformers: {
     remark: {

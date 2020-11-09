@@ -5,12 +5,35 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  })
+module.exports = function(api) {
+  api.loadSource(async (actions) => {
+    const dirTree = require("directory-tree");
+    const tree = dirTree("./src/assets/images/gallery", {
+      extensions: /\.jpg$/,
+    });
+    const images = tree.children;
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  })
-}
+    const collection = actions.addCollection({
+      typeName: "Images",
+    });
+
+    for (let el of Object.keys(images)) {
+      collection.addNode(images[el]);
+    }
+
+    api.createPages(async ({ graphql, createPage }) => {
+      const { data } = await graphql(`
+        {
+          allImages {
+            edges {
+              node {
+                path
+                name
+              }
+            }
+          }
+        }
+      `);
+    });
+  });
+};

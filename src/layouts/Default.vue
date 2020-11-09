@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="md:ml-48">
     <Navbar />
-    <slot></slot>
+    <slot ></slot>
   </div>
 </template>
 

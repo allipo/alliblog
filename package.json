@@ -16,6 +16,8 @@
     "netlify-cms": "^2.10.68"
   },
   "devDependencies": {
+    "directory-tree": "^2.2.5",
+    "flat": "^5.0.2",
     "gridsome-plugin-tailwindcss": "^3.0.1"
   }
 }
