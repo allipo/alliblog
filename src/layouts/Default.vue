@@ -1,6 +1,19 @@
 <template>
-
+  <div>
+    <Navbar />
+    <slot></slot>
+  </div>
 </template>
+
+<script>
+import Navbar from "../components/Navbar.vue";
+
+export default {
+  components: {
+    Navbar,
+  },
+};
+</script>
 
 <static-query>
 query {
@@ -10,6 +23,4 @@ query {
 }
 </static-query>
 
-<style>
-
-</style>
+<style></style>
