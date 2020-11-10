@@ -7,10 +7,11 @@ module.exports = {
       use: "@gridsome/source-filesystem",
       options: {
         path: "static/posts",
-        pathPrefix: '/blog',
+        pathPrefix: "/blog",
         typeName: "Post",
         remark: {
-          // remark options
+          externalLinksTarget: "_blank",
+          externalLinksRel: ["nofollow", "noopener", "noreferrer"],
         },
       },
     },
@@ -31,6 +32,6 @@ module.exports = {
     },
   ],
   templates: {
-    Post: "/blog/:year/:month/:day/:title",
+    Post: "/blog/:id",
   },
 };
