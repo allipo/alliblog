@@ -1,20 +1,16 @@
 backend:
   name: github
-  repo: your_name/repo_name
-
-publish_mode: editorial_workflow
+  repo: NPetz/alliblog
 
 media_folder: "static/uploads"
-public_folder: "/uploads"
+public_folder: "/public"
 
 collections:
   - name: "posts"
-    label: "Posts"
-    folder: "posts"
+    folder: "static/posts"
     create: true
-    slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Excerpt", name: "excerpt", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "date"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}

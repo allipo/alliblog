@@ -6,24 +6,18 @@
 
 module.exports = {
   siteName: "Duck Atelier",
+  siteDescription: "Allison's quacky pond",
+  titleTemplate: `Duck Atelier - %s `,
   plugins: [
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: ".src/assets/blog/**/*.md",
+        path: "static/posts",
+        pathPrefix: '/blog',
         typeName: "Post",
         remark: {
           // remark options
         },
-      },
-    },
-    {
-      use: "@gridsome/vue-remark",
-      options: {
-        typeName: "Documentation", // Required
-        baseDir: "./content/docs", // Where .md files are located
-        pathPrefix: "/docs", // Add route prefix. Optional
-        template: "./src/templates/Documentation.vue", // Optional
       },
     },
     {
@@ -35,13 +29,14 @@ module.exports = {
     {
       use: "gridsome-plugin-tailwindcss",
     },
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `/admin`,
+      },
+    },
   ],
   templates: {
     Post: "/blog/:year/:month/:day/:slug",
-  },
-  transformers: {
-    remark: {
-      // global remark options
-    },
   },
 };
