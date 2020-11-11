@@ -1,35 +1,30 @@
 <template>
-<div>
-    <div class="invisible md:visible fixed top-0 left-0 w-full min-w-screen min-h-screen md:w-48 bg-white">
+<div class="font-serif">
+    <div class="invisible md:visible fixed top-0 left-0 w-full min-h-screen md:w-48 bg-white">
         <div class="mx-auto mt-16 mb-16">
             <g-link to="/">
-                <g-image class="mx-auto" src="~/cute.png" width="150" />
+                <g-image class="mx-auto drop dred" src="~/cute.png" width="150" />
             </g-link>
         </div>
 
-        <div class=" h-40 mt-16 mb-16 ml-8 pl-4 border-l-2 border-gray-600 flex justify-between flex-col text-gray-800 text-lg">
-            <g-link class="fair" to="/">Home</g-link>
-            <g-link class="fair" to="/blog">Blog</g-link>
-            <g-link class="fair" to="/gallery">Gallery</g-link>
-            <g-link class="fair" to="/about">About</g-link>
+        <div class=" h-40 mt-16 mb-16 ml-8 pl-4  flex justify-between flex-col text-gray-800 text-lg border-l border-black">
+            <g-link class=" link" to="/">Home</g-link>
+            <g-link class=" link" to="/blog">Blog</g-link>
+            <g-link class=" link" to="/gallery">Gallery</g-link>
+            <g-link class=" link" to="/about">About</g-link>
         </div>
     </div>
 
-    <div class="mx-auto md:hidden fixed bottom-0 inset-x-0 p-4 z-10">
-        <g-image class="mx-auto drop" src="~/cute.png" width="50" @click="showNav = !showNav" />
+    <div class="mx-auto md:hidden fixed bottom-0 inset-x-0 mb-4 z-30 w-12 sm:w-20">
+        <g-image class="mx-auto flip drop dred" src="~/cute.png" width="100" @click="showNav = !showNav" />
     </div>
 
-    <div v-if="this.showNav" class=" text-sm fixed md:hidden border border-double border-gray-800 inset-x-0 bottom-0 mb-8 sm:mb-6 p-px sm:p-2 ml-2 sm:ml-8 flex flex-row justify-around w-32 sm:w-64 bg-white z-10">
+    <div v-if="this.showNav" class=" navbor gap-x-2 sm:gap-x-6 flex text-xs sm:text-base fixed md:hidden  inset-x-0 bottom-0 mx-2 sm:mx-6 mb-6 justify-around z-20">
 
-        <g-link class="fair" to="/">Home</g-link>
-        <g-link class="fair" to="/gallery">Gallery</g-link>
-
-    </div>
-
-    <div v-if="this.showNav" class=" text-sm fixed md:hidden border border-double border-gray-800 right-0 bottom-0 mb-8 sm:mb-6 p-px sm:p-2 mr-2 sm:mr-8 flex flex-row justify-around w-32 sm:w-64 bg-white z-10">
-
-        <g-link class="fair" to="/blog">Blog</g-link>
-        <g-link class="fair" to="/about">About</g-link>
+        <g-link class=" link" to="/">Home</g-link>
+        <g-link class=" link" to="/blog">Blog</g-link>
+        <g-link class=" ml-16 link" to="/gallery">Gallery</g-link>
+        <g-link class=" link" to="/about">About</g-link>
 
     </div>
 
@@ -48,19 +43,26 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
 
 .drop {
-    filter: drop-shadow(0px 0px 5px #fff);
+    filter: drop-shadow(-3px 3px 0 rgba(0, 0, 0, 0.8));
+}
+
+.dred:hover {
+    filter: drop-shadow(-3px 3px 0 rgba(255, 0, 0, 0.8));
+}
+
+.flip {
     transform: scaleX(-1);
 }
 
-.fair {
-    font-family: "Playfair Display SC", serif;
-    font-weight: 700;
+.navbor {
+    @apply border border-dotted border-gray-800 bg-red-100 p-2
 }
 
-.fair:hover {
-    opacity: 50%;
+.link:hover {
+    @apply line-through
 }
 </style>

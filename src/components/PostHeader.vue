@@ -1,9 +1,9 @@
 <template>
 <div>
     <g-link :to="'/blog/'+prop.id">
-        <h1 class="text-xl fair">{{ prop.title }}</h1>
+        <h1 class="text-4xl font-serif link">{{ prop.title }}</h1>
     </g-link>
-    <p class="text-xs">{{ prop.date }}</p>
+    <p class="font-sans">{{ prop.date }}</p>
 </div>
 </template>
 
@@ -13,4 +13,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

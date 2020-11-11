@@ -1,17 +1,17 @@
 <template>
-  <div class="md:ml-48">
+<div class="md:ml-48 min-h-screen">
     <Navbar />
-    <slot ></slot>
-  </div>
+    <slot></slot>
+</div>
 </template>
 
 <script>
 import Navbar from "../components/Navbar.vue";
 
 export default {
-  components: {
-    Navbar,
-  },
+    components: {
+        Navbar,
+    },
 };
 </script>
 
@@ -23,4 +23,6 @@ query {
 }
 </static-query>
 
-<style></style>
+<style>
+
+</style>
