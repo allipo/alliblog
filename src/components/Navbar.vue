@@ -36,7 +36,7 @@ export default {
     name: "Navbar",
     data() {
         return {
-            showNav: false,
+            showNav: true,
         };
     },
 };

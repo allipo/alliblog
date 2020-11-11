@@ -1,10 +1,9 @@
 <template>
 <Layout>
-    <div class="bg-yellow-100">
-        <div class="min-h-screen max-w-sm pr-4 pl-4 md:max-w-lg xl:max-w-2xl mx-auto pt-20 pb-20">
-            <h1 class="font-serif text-6xl text-center">{{$page.post.title}}</h1>
+    <div class="bg-yellow-100 min-h-screen">
+        <div class="mx-auto py-12 sm:py-20 px-6 max-w-sm md:max-w-xl">
+            <h1 class="font-serif text-2xl md:text-4xl text-center leading-snug">{{$page.post.title}}</h1>
             <p class="font-sans text-lg text-center mb-6">{{$page.post.date}}</p>
-
             <article class="markdown" v-html="$page.post.content"></article>
         </div>
     </div>
@@ -44,12 +43,12 @@ query getPostData ($path: String!) {
     p,
     ul,
     ol {
-        @apply mb-4;
+        @apply mb-6 leading-loose;
     }
 
     ul li,
     ol li {
-        @apply mb-4;
+        @apply mb-6;
     }
 
     ul {
@@ -66,7 +65,7 @@ query getPostData ($path: String!) {
     h4,
     h5,
     h6 {
-        @apply font-sans font-bold text-black my-6;
+        @apply font-sans font-bold text-black my-8 leading-tight;
     }
 
     h5,
@@ -141,23 +140,23 @@ query getPostData ($path: String!) {
         }
 
         h1 {
-            @apply text-6xl;
-        }
-
-        h2 {
             @apply text-4xl;
         }
 
-        h3 {
+        h2 {
             @apply text-3xl;
         }
 
-        h4 {
+        h3 {
             @apply text-2xl;
         }
 
-        h5 {
+        h4 {
             @apply text-xl;
+        }
+
+        h5 {
+            @apply text-lg;
         }
 
         h6 {
