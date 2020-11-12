@@ -1,9 +1,9 @@
 <template>
 <Layout>
     <div class="bg-yellow-100 min-h-screen">
-        <div class="mx-auto py-12 sm:py-20 px-6 max-w-sm md:max-w-xl">
-            <h1 class="font-serif text-2xl md:text-4xl text-center leading-snug">{{$page.post.title}}</h1>
-            <p class="font-sans text-lg text-center mb-6">{{$page.post.date}}</p>
+        <div class="mx-auto py-16 sm:py-24 px-8 max-w-sm sm:max-w-lg">
+            <h1 class="font-serif text-4xl text-center leading-snug">{{$page.post.title}}</h1>
+            <p class="font-sans text-center mb-16">{{$page.post.date}}</p>
             <article class="markdown" v-html="$page.post.content"></article>
         </div>
     </div>
@@ -43,20 +43,20 @@ query getPostData ($path: String!) {
     p,
     ul,
     ol {
-        @apply mb-6 leading-loose;
+        @apply mb-6;
     }
 
     ul li,
     ol li {
-        @apply mb-6;
+        @apply;
     }
 
     ul {
-        @apply list-disc pl-4;
+        @apply list-disc pl-6;
     }
 
     ol {
-        @apply list-decimal pl-4;
+        @apply list-decimal pl-6;
     }
 
     h1,
@@ -65,7 +65,7 @@ query getPostData ($path: String!) {
     h4,
     h5,
     h6 {
-        @apply font-sans font-bold text-black my-8 leading-tight;
+        @apply font-sans leading-tight font-bold my-6;
     }
 
     h5,
@@ -78,19 +78,19 @@ query getPostData ($path: String!) {
     }
 
     h2 {
-        @apply text-2xl;
-    }
-
-    h3 {
         @apply text-xl;
     }
 
-    h4 {
+    h3 {
         @apply text-lg;
     }
 
-    h5 {
+    h4 {
         @apply text-base;
+    }
+
+    h5 {
+        @apply text-sm;
     }
 
     h6 {
@@ -120,7 +120,7 @@ query getPostData ($path: String!) {
     }
 
     blockquote {
-        @apply border-l-4 border-gray-300 p-4 mb-4 mx-4 italic;
+        @apply border-l-4 border-gray-500 p-4 mb-4 mx-4 italic;
 
         p {
             @apply mb-0;
@@ -128,40 +128,137 @@ query getPostData ($path: String!) {
     }
 
     hr {
-        @apply h-px bg-gray-300 my-8;
+        @apply h-px border-gray-500 my-8;
     }
-}
 
-@screen sm {
+    @screen sm {
 
-    .markdown {
-        blockquote {
-            @apply mx-10;
+        p,
+        ul,
+        ol {
+            @apply text-lg mb-8;
+        }
+
+        ul li,
+        ol li {
+            @apply mb-2;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply font-sans leading-tight font-bold my-8;
+        }
+
+        h5,
+        h6 {
+            @apply uppercase;
         }
 
         h1 {
-            @apply text-4xl;
+            @apply text-3xl
         }
 
         h2 {
-            @apply text-3xl;
-        }
-
-        h3 {
-            @apply text-2xl;
-        }
-
-        h4 {
             @apply text-xl;
         }
 
-        h5 {
+        h3 {
             @apply text-lg;
         }
 
-        h6 {
-            @apply text-base;
+        h4 {
+            @apply text-base italic;
         }
+
+        h5 {
+            @apply text-sm;
+        }
+
+        h6 {
+            @apply text-sm italic;
+        }
+
+        blockquote {
+            @apply border-l-4 border-gray-500 p-6 mb-6 mx-4 italic;
+
+            p {
+                @apply mb-0;
+            }
+        }
+
+        hr {
+            @apply h-px border-gray-500 my-10;
+        }
+
+    }
+
+    @screen sm {
+
+        p,
+        ul,
+        ol {
+            @apply text-lg mb-8;
+        }
+
+        ul li,
+        ol li {
+            @apply mb-2;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply font-sans leading-tight font-bold my-8;
+        }
+
+        h5,
+        h6 {
+            @apply uppercase;
+        }
+
+        h1 {
+            @apply text-3xl
+        }
+
+        h2 {
+            @apply text-xl;
+        }
+
+        h3 {
+            @apply text-lg;
+        }
+
+        h4 {
+            @apply text-base italic;
+        }
+
+        h5 {
+            @apply text-sm;
+        }
+
+        h6 {
+            @apply text-sm italic;
+        }
+
+        blockquote {
+            @apply border-l-4 border-gray-500 p-6 mb-6 mx-4 italic;
+
+            p {
+                @apply mb-0;
+            }
+        }
+
+        hr {
+            @apply h-px border-gray-500 my-10;
+        }
+
     }
 }
 </style>
