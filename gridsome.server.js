@@ -2,7 +2,7 @@
 module.exports = function(api) {
   api.loadSource(async (actions) => {
     const dirTree = require("directory-tree");
-    const tree = dirTree("./src/assets/images/gallery", {
+    const tree = dirTree("./static/uploads", {
       extensions: /\.jpg$/,
     });
     const images = tree.children;

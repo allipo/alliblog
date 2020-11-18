@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
-        "'Quattrocento'",
+        "'Quattrocento Sans'",
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -23,6 +23,7 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: ['"Playfair Display SC"','Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: ['"Inconsolata"','monospace'],
     },
     extend: {},
   },
