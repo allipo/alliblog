@@ -25,7 +25,18 @@ module.exports = {
       serif: ['"Playfair Display SC"','Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['"Inconsolata"','monospace'],
     },
-    extend: {},
+
+    extend: {
+
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem',
+      },
+
+      colors: {
+        'brightblue' : '#3bbfff',
+      },
+    },
   },
   variants: {
   },
