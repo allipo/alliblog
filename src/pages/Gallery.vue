@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.enlargeable {
+  cursor: zoom-in;
+}
+
 .enlarged {
   z-index: 9999;
   position: fixed;
@@ -40,6 +44,7 @@ export default {
   object-fit: scale-down;
   backdrop-filter: blur(20px);
   padding: 2em;
+  cursor: zoom-out;
 }
 </style>
 
