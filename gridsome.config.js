@@ -22,9 +22,6 @@ module.exports = {
       },
     },
     {
-      use: "gridsome-plugin-tailwindcss",
-    },
-    {
       use: `gridsome-plugin-netlify-cms`,
       options: {
         publicPath: `/admin`,
@@ -33,5 +30,23 @@ module.exports = {
   ],
   templates: {
     Post: "/blog/:id",
+  },
+
+  chainWebpack: (config) => {
+    config.module
+      .rule("css")
+      .oneOf("normal")
+      .use("postcss-loader")
+      .tap((options) => {
+        options.plugins.unshift(
+          ...[
+            require("postcss-import"),
+            require("postcss-nested"),
+            require("tailwindcss"),
+          ]
+        );
+
+        return options;
+      });
   },
 };

@@ -13,14 +13,16 @@
     "@gridsome/vue-remark": "^0.2.5",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "netlify-cms": "^2.10.68"
+    "netlify-cms": "^2.10.68",
+    "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
     "directory-tree": "^2.2.5",
     "flat": "^5.0.2",
-    "gridsome-plugin-tailwindcss": "^3.0.1",
     "netlify-cms-lib-widgets": "^1.6.0",
     "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1"
   }
 }
