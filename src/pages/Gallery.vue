@@ -1,12 +1,7 @@
 <template>
   <Layout>
     <div class="flex flex-wrap overflow-hidden bg-indigo-100">
-      <g-image
-        class="p-1 w-full overflow-hidden sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 object-cover enlargeable"
-        v-for="edge in $page.images.edges"
-        :key="edge.node.name"
-        :src="require(`../../static/uploads/${edge.node.name}`)"
-      />
+      <g-image class="p-1 w-full overflow-hidden sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 object-cover enlargeable" v-for="edge in $page.images.edges" :key="edge.node.name" :src="require(`../../static/uploads/${edge.node.name}`)" />
     </div>
   </Layout>
 </template>

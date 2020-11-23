@@ -15,15 +15,15 @@
       </div>
     </div>
 
-    <div class="mx-auto md:hidden fixed bottom-0 right-0 mb-5 mr-2 sm:mb-2 sm:mr-4 z-30 w-12 sm:w-20">
+    <div v-if="!this.showNav" class="mx-auto md:hidden fixed bottom-0 right-0 left-0 mb-4 sm:mb-2 z-30 w-16 sm:w-20">
       <g-image class="mx-auto flip drop dred" src="~/cute.png" width="100" @click="showNav = !showNav" />
     </div>
 
-    <div v-if="this.showNav" class="navbor gap-x-2 sm:gap-x-6 flex text-xs sm:text-base fixed md:hidden inset-x-0 bottom-0 mx-2 sm:mx-6 mb-6 justify-around z-20">
+    <div v-if="this.showNav" class="navbar gap-x-2 sm:gap-x-6 flex text-xs sm:text-base fixed md:hidden inset-x-0 bottom-0 mx-2 sm:mx-6 mb-6 justify-around z-20">
       <g-link class="link" to="/">Home</g-link>
       <g-link class="link" to="/blog">Blog</g-link>
       <g-link class="link" to="/gallery">Gallery</g-link>
-      <g-link class="link mr-8 sm:mr-12" to="/about">About</g-link>
+      <g-link class="link" to="/about">About</g-link>
     </div>
   </div>
 </template>
@@ -31,9 +31,25 @@
 <script>
 export default {
   name: "Navbar",
+  mounted() {
+    document.addEventListener(
+      "scroll",
+      () => {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st < this.lastScrollTop) {
+          this.showNav = true;
+        } else {
+          this.showNav = false;
+        }
+        this.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      },
+      false
+    );
+  },
   data() {
     return {
       showNav: true,
+      lastScrollTop: 0,
     };
   },
 };
@@ -56,8 +72,8 @@ export default {
   transform: scaleX(-1);
 }
 
-.navbor {
-  @apply border border-gray-800 bg-yellow-100 p-2;
+.navbar {
+  @apply border border-gray-800 bg-white p-2;
 }
 
 .link:hover {
